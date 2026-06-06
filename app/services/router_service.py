@@ -58,6 +58,23 @@ class RouterService:
             "price",
             "prices",
             "weather",
+            "chief minister",
+            "prime minister",
+            "president",
+            "governor",
+            "mayor",
+            "current cm",
+            "current pm",
+            " cm ",
+            " pm ",
+            " ceo ",
+            "who is cm",
+            "who is pm",
+            "who is the cm",
+            "who is the pm",
+            "who is the president",
+            "who is the chief minister",
+            "who is the prime minister",
             "trend",
             "trending",
             "now",
@@ -100,9 +117,17 @@ class RouterService:
             "previous",
             "what about",
             "who created it",
+            "who made it",
+            "who developed it",
+            "when was it",
+            "where is it",
+            "tell me more",
+            "more about it",
             "summarize what we discussed",
         ]
-        return len(text.split()) <= 8 or any(term in text for term in memory_terms)
+        pronouns = {"it", "that", "this", "they", "those", "he", "she", "them", "there"}
+        words = {word.strip(".,?!;:()[]{}") for word in text.split()}
+        return any(term in text for term in memory_terms) or bool(words & pronouns)
 
     def _build_router_prompt(self, message: str, history: list[dict]) -> str:
         recent = "\n".join(f"{item['role']}: {item['content']}" for item in history[-6:])
