@@ -1,0 +1,59 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.crt
+
+# Python virtual environments
+.venv/
+.venv-*/
+.fvenv/
+venv/
+env/
+ENV/
+
+# Python cache and build output
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Runtime data
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.faiss
+
+# Uploaded/generated files
+uploads/
+vectorstore/
+*.log
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local Codex/agent metadata
+.codex/
+.agents/
+
